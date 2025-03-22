@@ -1,6 +1,7 @@
 ---
 import Button from '@components/ui/Button.astro';
 import { Image } from 'astro:assets';
+import logo_header from '@assets/images/logos/logo_home.png';
 
 interface HeroContent {
     title: string;
@@ -23,14 +24,14 @@ const { content } = Astro.props;
 const opacity = content.overlayOpacity ?? 1; // Default opacity if not specified
 ---
 
-<section class="header-offset relative">
+<section class="relative">
     {content.backgroundImage && (
         <div class="absolute inset-0 left-0 top-0 w-full h-full overflow-hidden">
             <Image 
                 src={content.backgroundImage}
                 alt="Background image"
                 width={1920}
-                height={1080}
+                height={1180}
                 class="w-full h-full object-cover"
                 quality={70}
                 format="webp"
@@ -44,21 +45,19 @@ const opacity = content.overlayOpacity ?? 1; // Default opacity if not specified
         </div>
     )}
 
-    <div class="site-container mx-auto px-4 py-large relative z-10 flex flex-col md:items-center md:justify-center md:text-center">
+    <div class="pt-0 site-container mx-auto px-4 mb-30 h-100 relative z-10 flex flex-col md:items-center md:justify-center md:text-center">            
+        <div class="absolute inset-0 bg-black/50 -z-10"></div>
+        <Image 
+                src={logo_header}
+                alt="Logo"
+                width={300}
+                height={300}
+                quality={70}
+                loading="eager"
+                decoding="async"
+                class="mt-24"
+            />
         <h1 class="text-white text-balance" data-aos="fade-up">{content.title}</h1>
-        <p class="text-white mt-2 text-balance" data-aos="fade-up" data-aos-delay="100">{content.description}</p>
-        {content.buttons && content.buttons.length > 0 && (
-            <div class="flex flex-wrap gap-4 mt-8" data-aos="fade-up">
-                {content.buttons.map((button) => (
-                    <Button
-                        href={button.link}
-                        target={button.target || '_self'}
-                        variant={button.variant || 'primary'}
-                    >
-                        {button.text}
-                    </Button>
-                ))}
-            </div>
-        )}
+        <p class="text-white mt-2 mb-10 text-balance" data-aos="fade-up" data-aos-delay="100">{content.description}</p>
     </div>
 </section>

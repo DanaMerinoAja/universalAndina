@@ -1,4 +1,4 @@
-import { Zap, Shield, Heart, Coffee, Smile, Type, TabletSmartphone, CodeXml } from 'lucide-astro';
+import { CodeXml, Coffee, Heart, Shield, Smile, TabletSmartphone, Type, Zap } from 'lucide-astro';
 
 // Define the LucideIcon type based on the structure of Lucide icons
 type LucideIcon = typeof Zap;
@@ -7,6 +7,7 @@ export interface Feature {
     icon: LucideIcon;
     title: string;
     description: string;
+    link: string;
 }
 
 export interface FeatureList {
@@ -21,33 +22,33 @@ export const featureLists: Record<string, FeatureList> = {
         features: [
             {
                 icon: Zap,
-                title: 'Lightning Fast Performance',
-                description: 'Optimized for speed and performance'
+                title: 'Mantenimiento mecánico y eléctrico',
+                description: '',
+                link:"/servicios/mantenimiento-mecanico-electrico/"
             },
             {
                 icon: Shield,
-                title: 'SEO Optimized Structure',
-                description: 'Built with SEO best practices in mind'
+                title: 'Mantenimiento a sistemas neumáticos e hidráulicos',
+                description: '',
+                link:"/servicios/mantenimiento-neumaticos/"
             },
             {
                 icon: TabletSmartphone,
-                title: 'Responsive by Default',
-                description: 'Mobile-friendly out of the box'
+                title: 'Fabricación de estructuras metálicas',
+                description: '',
+                link:"/servicios/fabricacion-estructuras-metalicas/"
             },
             {
                 icon: Smile,
-                title: 'Easy Customization',
-                description: 'Customize the theme to your liking'
+                title: 'Maestranza',
+                description: '',
+                link:"/servicios/maestranza/"
             },
             {
-                icon: Type,
-                title: 'TypeScript Support',
-                description: 'Built with TypeScript in mind'
-            },
-            {
-                icon: CodeXml,
-                title: 'Minimal Dependencies',
-                description: 'Keep your project lightweight'
+                icon: Smile,
+                title: 'Accesorios industriales y formatería corporativa',
+                description: '',
+                link:"/servicios/venta-accesorios/"
             }
         ]
     },
@@ -57,17 +58,20 @@ export const featureLists: Record<string, FeatureList> = {
             {
                 icon: Heart,
                 title: 'Made with Love',
-                description: 'Crafted with attention to detail'
+                description: 'Crafted with attention to detail',
+                link:""
             },
             {
                 icon: Coffee,
                 title: 'Always Fresh',
-                description: 'Regular updates and improvements'
+                description: 'Regular updates and improvements',
+                link:""
             },
             {
                 icon: Smile,
                 title: 'User Friendly',
-                description: 'Intuitive and easy to use'
+                description: 'Intuitive and easy to use',
+                link:""
             }
         ]
     }

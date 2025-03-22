@@ -38,12 +38,6 @@ const textColor = getTextColor(background);
     <div class="site-container px-4">
         {(title || description) && (
             <div class="max-w-3xl mx-auto text-center mb-12">
-                {eyebrow && (
-                    <Eyebrow 
-                        text={eyebrow} 
-                        background={background} 
-                    />
-                )}
                 {title && <h2 data-aos="fade-up" class:list={["text-3xl font-bold mb-4", headlineColor]}>{title}</h2>}
                 {description && <p data-aos="fade-up" class:list={["text-lg", textColor]}>{description}</p>}
             </div>
@@ -53,16 +47,16 @@ const textColor = getTextColor(background);
             <div class="divide-y divide-gray-200">
                 {faqs.map((faq, index) => (
                     <div 
-                        class="faq-item py-6"
+                        class="faq-item bg-primary"
                         data-aos="fade-up"
                         data-aos-delay={index * 100}
                     >
                         <button 
-                            class="group w-full flex items-center justify-between text-left cursor-pointer"
+                            class="group w-full flex items-center justify-between px-4 py-6 text-left cursor-pointer text-white shadow"
                             aria-expanded="false"
                             aria-controls={`faq-${index}`}
                         >
-                            <h3 class:list={["text-xl font-semibold pr-8", headlineColor]}>
+                            <h3 class:list={["text-xl font-semibold pr-8 text-white", headlineColor]}>
                                 {faq.question}
                             </h3>
                             <div class="icon-wrapper">
@@ -78,12 +72,18 @@ const textColor = getTextColor(background);
                         </button>
                         <div 
                             id={`faq-${index}`}
-                            class="answer-wrapper grid grid-rows-[0fr] transition-all duration-200 ease-out"
+                            class="answer-wrapper grid grid-rows-[0fr] transition-all duration-200 ease-out bg-background-light "
                             aria-hidden="true"
                         >
                             <div class="overflow-hidden">
-                                <div class:list={["pt-4 pr-8 text-small", textColor]}>
-                                    {faq.answer}
+                                <div class:list={["pt-4 p-8 pb-3 text-small", textColor]}>
+                                    {
+                                        Array.isArray(faq.answer)
+                                            ? <ul class="list-disc pl-6 space-y-1">
+                                                {faq.answer.map(item => <li>{item}</li>)}
+                                            </ul>
+                                            : faq.answer
+                                    }
                                 </div>
                             </div>
                         </div>

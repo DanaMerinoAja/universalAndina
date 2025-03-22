@@ -2,7 +2,6 @@
 import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import ThemeSwitcher from "../components/ThemeSwitcher.astro";
 import { SEO, siteConfig } from "../data/config";
 import 'aos/dist/aos.css';
 import { themeSetting } from "../data/config";
@@ -14,16 +13,6 @@ interface Props {
 	title?: string;
 	description?: string;
 	image?: string;
-	footerCta?: {
-		title: string;
-		description: string;
-		hideCta: boolean;
-		button: {
-			text: string;
-			link: string;
-			target?: string;
-		};
-	};
 	canonicalUrl?: string;
 }
 
@@ -72,8 +61,7 @@ const fullCanonicalUrl = new URL(canonicalPath, siteConfig.siteUrl).toString();
 	<body data-theme={theme}>
 		<Header />
 		<slot />
-		<Footer footerCta={footerCta} />
-		<ThemeSwitcher />
+		<Footer/>
 		
 		<script>
 			import AOS from 'aos';

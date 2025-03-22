@@ -35,25 +35,25 @@ const paddingClass = getPaddingClass({
 <section class:list={["relative", bgColor, paddingClass]}>
     <div class="site-container px-4 text-center">
         {eyebrow && (
-            <Eyebrow 
-                text={eyebrow} 
-                background={background} 
-                className="text-center"
-            />
+            <h2 class:"text-sky-900" data-aos="fade-up">
+                {eyebrow}
+            </h2>
         )}
-        <div class="flex flex-wrap justify-center gap-16">
+
+        <div class="flex flex-wrap justify-center gap-16 mt-15">
             {logos.map((logo, index) => (
                 <div 
                     class="logo-wrapper flex justify-center items-center w-32 h-20"
                     data-aos="fade-up"
                     data-aos-delay={index * 100}
                 >
+
                     <Image 
                         src={logo.src} 
                         alt={logo.alt}
-                        class="h-8 md:h-10 w-auto transition-all duration-300 object-contain object-center filter grayscale hover:grayscale-0 opacity-75 hover:opacity-100"
-                        width={200}
-                        height={80}
+                        class="h-8 md:h-15 w-auto transition-all duration-300 object-contain object-center filter grayscale hover:grayscale-0 opacity-75 hover:opacity-100"
+                        width={300}
+                        height={180}
                     />
                 </div>
             ))}

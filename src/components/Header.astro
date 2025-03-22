@@ -5,8 +5,8 @@ import { Menu, X, ChevronDown } from 'lucide-astro';
 import Button from '@components/ui/Button.astro';
 
 const ctaButton = {
-    name: 'Contact Us',
-    link: '/contact',
+    name: 'Contáctanos',
+    link: '#contacto',
 }
 
 // Get the current path to determine active menu item
@@ -21,17 +21,34 @@ const isCurrentPage = (link: string) => {
 };
 
 ---
+<script>
+    window.addEventListener("scroll", function() {
+        const header = document.getElementById("header");
+        const logo = document.getElementById("logo");
+        if (window.scrollY > 50) {
+            header.classList.add("bg-primary", "shadow-lg");
+            logo.classList.remove("invisible");
+            header.classList.remove("bg-transparent", "text-white");
+        } else {
+            header.classList.add("bg-transparent");
+            header.classList.remove("bg-primary", "shadow-lg", "text-white");
+            logo.classList.add("invisible");
+        }
+    });
+</script>
 
 <header class="fixed top-0 z-50 w-full left-0">
-    <div class="site-container mx-auto px-4 mt-4">
-        <div class="flex justify-between items-center bg-white py-4 rounded-lg px-4 border-black border">
-        <Logo />
+    <div class="site-container">
+        <div id="header" class="flex justify-between items-center transition delay-150 duration-300 px-4">
+        <div id="logo" class="invisible">
+            <Logo />
+        </div>
         <nav class="relative flex items-center gap-2 lg:gap-8" aria-label="Site Navigation">
             <!-- Desktop Menu -->
-        <ul class="hidden lg:flex lg:gap-8 items-center">
+        <ul class="hidden lg:flex items-center">
             {headerMenu.map((item, index) => (
                 <li class="relative group">
-                    <div class="flex items-center gap-1">
+                    <div class="flex items-center py-4 px-4 hover:bg-primary-light">
                         <a 
                             href={item.link} 
                             class:list={[
@@ -94,7 +111,7 @@ const isCurrentPage = (link: string) => {
             aria-expanded="false"
         >
             <span class="menu-icon block">
-                <Menu size={24} class="text-body-base"/>
+                <Menu size={24} class="text-background-light"/>
             </span>
             <span class="close-icon hidden">
                 <X size={24} class="text-white"/>
@@ -108,7 +125,7 @@ const isCurrentPage = (link: string) => {
             <ul class="flex flex-col gap-4">
                 {headerMenu.map(item => (
                     <li>
-                        <div class="text-white">
+                        <div>
                             <div class="flex items-center justify-between">
                                 <a 
                                     href={item.link} 

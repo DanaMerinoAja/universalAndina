@@ -2,11 +2,12 @@ import type { ImageMetadata } from 'astro';
 
 // Import your logo images
 // Replace these imports with your actual logo files
-import logo1 from '../assets/images/logos/logoipsum-333.svg';
-import logo2 from '../assets/images/logos/logoipsum-335.svg';
-import logo3 from '../assets/images/logos/logoipsum-344.svg';
-import logo4 from '../assets/images/logos/logoipsum-347.svg';
-import logo5 from '../assets/images/logos/logoipsum-352.svg';
+import ceyca from '../assets/images/logos/cayca.png';
+import geofusion from '../assets/images/logos/geofusion.jpg';
+import lazanja from '../assets/images/logos/lazanja.jpg';
+import logo_sysmrl from '../assets/images/logos/logo_sysmrl.png';
+import maquirent from '../assets/images/logos/maquirent.png';
+import newmont from '../assets/images/logos/newmont.png';
 
 export interface Logo {
     src: ImageMetadata;
@@ -23,25 +24,30 @@ export const logoLists: Record<string, LogoList> = {
     main: {
         id: 'main',
         logos: [
+            
             {
-                src: logo1,
-                alt: 'Logo 1',
+                src: logo_sysmrl,
+                alt: 'SyMiSRL',
             },
             {
-                src: logo2,
-                alt: 'Logo 2',
+                src: geofusion,
+                alt: 'Geofusion',
             },
             {
-                src: logo3,
-                alt: 'Logo 3',
+                src: newmont,
+                alt: 'Newmont',
             },
             {
-                src: logo4,
-                alt: 'Logo 4',
+                src: maquirent,
+                alt: 'Maquirent',
             },
             {
-                src: logo5,
-                alt: 'Logo 5',
+                src: ceyca,
+                alt: 'Ceyca',
+            },
+            {
+                src: lazanja,
+                alt: 'La Zanja',
             }
         ]
     }

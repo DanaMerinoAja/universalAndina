@@ -1,21 +1,18 @@
 export const siteConfig = {
-  companyName: 'Titan Core',
-  siteUrl: 'https://titan-core.com',
+  companyName: 'Universal Andina SAC',
+  siteUrl: 'https://universalandina.com',
   Socials: {
-      xSocial: 'https://x.com/astrodotbuild',
-      Github: 'https://github.com/withastro',
-      Instagram: 'https://www.instagram.com/astrodotbuild',
-      LinkedIn: 'https://www.linkedin.com/company/astrodotbuild',
-      Email: 'support@titan-core.com',
-      Phone: '+123 456 7890',
-      Location: '123 Main St, Anytown, USA',
+      Email: 'administracion@universalandina.com ',
+      Phone: '+51 957 412331',
+      Location: 'Av. Vía Llacanora SN, Baños del Inca, Cajamarca',
+      TrueLocation:'7°10\'11.3\"S 78°27\'24.3\"W'
   }
 };
 
 export const SEO = {
   Separator: '|',
-  SiteName: 'Titan Core',
-  defaultDescription: 'A modern, high-performance Astro JS theme',
+  SiteName: 'Universal Andina',
+  defaultDescription: 'Especialistas en mantenimiento mecánico',
 };
   
 export const blogSetting = {
@@ -23,5 +20,5 @@ export const blogSetting = {
 }
 
 export const themeSetting = {
-  theme: 'zeus'
+  theme: 'poseidon'
 }
