@@ -1,7 +1,7 @@
 ---
 title: "MANTENIMIENTO MECÁNICO Y ELÉCTRICO"
 excerpt: "Mantenimiento mecánico y eléctrico de bombas, motores y electrobombas. "
-featuredImage: "./images/Imagen1.png"
+featuredImage: "./images/mantenimiento_mec_electrico.png"
 publishDate: ""
 publish: true
 categories: []

@@ -1,4 +1,9 @@
-import { CodeXml, Coffee, Heart, Shield, Smile, TabletSmartphone, Type, Zap } from 'lucide-astro';
+import { Bolt, Construction, Drill, Shield, Zap } from 'lucide-astro';
+import estructuras_metalicas from 'src/content/blog/images/estructuras_metalicas.jpg';
+import mantenimiento from 'src/content/blog/images/mantenimiento_mec_electrico.png';
+import maestranza from 'src/content/blog/images/maestranza.jpg';
+import sistemas from 'src/content/blog/images/sistemas_neumaticos_hidraulicos.jpg';
+import accesorios from 'src/content/blog/images/venta_accesorios_industriales.jpg';
 
 // Define the LucideIcon type based on the structure of Lucide icons
 type LucideIcon = typeof Zap;
@@ -6,7 +11,7 @@ type LucideIcon = typeof Zap;
 export interface Feature {
     icon: LucideIcon;
     title: string;
-    description: string;
+    image: ImageMetadata;
     link: string;
 }
 
@@ -23,55 +28,32 @@ export const featureLists: Record<string, FeatureList> = {
             {
                 icon: Zap,
                 title: 'Mantenimiento mecánico y eléctrico',
-                description: '',
+                image: mantenimiento,
                 link:"/servicios/mantenimiento-mecanico-electrico/"
             },
             {
                 icon: Shield,
                 title: 'Mantenimiento a sistemas neumáticos e hidráulicos',
-                description: '',
+                image: sistemas,
                 link:"/servicios/mantenimiento-neumaticos/"
             },
             {
-                icon: TabletSmartphone,
+                icon: Drill,
                 title: 'Fabricación de estructuras metálicas',
-                description: '',
+                image: estructuras_metalicas,
                 link:"/servicios/fabricacion-estructuras-metalicas/"
             },
             {
-                icon: Smile,
+                icon: Bolt,
                 title: 'Maestranza',
-                description: '',
+                image: maestranza,
                 link:"/servicios/maestranza/"
             },
             {
-                icon: Smile,
+                icon: Construction,
                 title: 'Accesorios industriales y formatería corporativa',
-                description: '',
+                image: accesorios,
                 link:"/servicios/venta-accesorios/"
-            }
-        ]
-    },
-    secondary: {
-        id: 'secondary',
-        features: [
-            {
-                icon: Heart,
-                title: 'Made with Love',
-                description: 'Crafted with attention to detail',
-                link:""
-            },
-            {
-                icon: Coffee,
-                title: 'Always Fresh',
-                description: 'Regular updates and improvements',
-                link:""
-            },
-            {
-                icon: Smile,
-                title: 'User Friendly',
-                description: 'Intuitive and easy to use',
-                link:""
             }
         ]
     }

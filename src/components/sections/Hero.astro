@@ -1,6 +1,11 @@
 ---
 import Button from '@components/ui/Button.astro';
 import { Image } from 'astro:assets';
+import { featureLists } from '@data/features.ts'; // o la ruta correcta
+
+import 'swiper/swiper-bundle.css';
+
+const features = featureLists.main.features;
 import logo_header from '@assets/images/logos/logo_home.png';
 
 interface HeroContent {
@@ -21,43 +26,66 @@ interface Props {
 }
 
 const { content } = Astro.props;
-const opacity = content.overlayOpacity ?? 1; // Default opacity if not specified
 ---
 
-<section class="relative">
-    {content.backgroundImage && (
-        <div class="absolute inset-0 left-0 top-0 w-full h-full overflow-hidden">
-            <Image 
-                src={content.backgroundImage}
-                alt="Background image"
-                width={1920}
-                height={1180}
-                class="w-full h-full object-cover"
-                quality={70}
-                format="webp"
-                loading="eager"
-                decoding="async"
-            />
-            <div 
-                class="hero-background absolute inset-0 left-0 top-0 w-full h-full overflow-hidden" 
-                style={`opacity: ${opacity};`}
-            ></div>
-        </div>
-    )}
-
-    <div class="pt-0 site-container mx-auto px-4 mb-30 h-100 relative z-10 flex flex-col md:items-center md:justify-center md:text-center">            
-        <div class="absolute inset-0 bg-black/50 -z-10"></div>
+<section class="relative w-full h-screen overflow-hidden">
+  <div class="swiper w-full h-full">
+    <div class="swiper-wrapper">
+      <!-- Slide 1: contenido clásico -->
+      <div class="swiper-slide relative w-full h-full">
         <Image 
-                src={logo_header}
-                alt="Logo"
-                width={300}
-                height={300}
-                quality={70}
-                loading="eager"
-                decoding="async"
-                class="mt-24"
-            />
-        <h1 class="text-white text-balance" data-aos="fade-up">{content.title}</h1>
-        <p class="text-white mt-2 mb-10 text-balance" data-aos="fade-up" data-aos-delay="100">{content.description}</p>
+          src={content.backgroundImage}
+          alt="Background image"
+          width={1920}
+          height={1080}
+          class="w-full h-full object-cover absolute inset-0"
+          quality={70}
+          format="webp"
+          loading="eager"
+          decoding="async"
+        />
+        <div class="absolute inset-0 bg-black/50 z-10"></div>
+        <div class="relative z-20 flex flex-col items-center justify-center text-center h-full">
+          <Image src={logo_header} alt="Logo" width={300} height={300} class="mt-12" />
+          <h1 class="text-white text-4xl md:text-6xl px-4" data-aos="fade-up">{content.title}</h1>
+          <p class="text-white mt-4 text-lg max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+            {content.description}
+          </p>
+        </div>
+      </div>
+
+      <!-- Slides siguientes: basados en features -->
+      {features.map((feature) => (
+        <div class="swiper-slide relative w-full h-full">
+          <Image
+            src={feature.image}
+            alt={feature.title}
+            width={1920}
+            height={1080}
+            class="w-full h-full object-cover absolute inset-0"
+            quality={70}
+            format="webp"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="absolute inset-0 bg-black/50 z-10"></div>
+          <div class="relative z-20 flex flex-col justify-center h-full px-20">
+            <h1 class="text-white text-balance font-bold text-left ">{feature.title}</h2>
+            <div class="items-center">
+                <Button href={feature.link} variant="primary">Ver más</Button>
+            </div>
+          </div>
+        </div>
+      ))}
+      
     </div>
+
+    <!-- Optional navigation -->
+    <div class="swiper-button-prev z-30 text-white"></div>
+    <div class="swiper-button-next z-30 text-white"></div>
+    <div class="swiper-pagination z-30"></div>
+  </div>
+
+  <!-- Swiper init script -->
+  <script type="module" src="/src/public/swiper-init.js"></script>
 </section>

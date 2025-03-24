@@ -32,12 +32,12 @@
     --color-nav-text-active: var(--color-eyebrow-dark);
     --color-nav-text-current: var(--color-eyebrow-dark);
     
-    --color-nav-mobile-text-hover: #f5f0e1;
+    --color-nav-mobile-text-hover: var(--color-background);
     --color-nav-mobile-text-active: #ffffff;
     --color-nav-mobile-text-current: #ffffff;
     --color-nav-mobile-text: #ffffff;
     
-    --color-nav-submenu-bg: var(--color-background-light);
+    --color-nav-submenu-bg: var(--color-primary);
     --color-header-logo: var(--color-background);
     --color-footer-logo: var(--color-primary);
     
@@ -73,11 +73,11 @@
     --border-radius-base: 1rem;
     --border-radius-large: 2rem;
     
-    --font-bruno-ace: 'Bruno Ace SC', sans-serif;
-    --font-noto-sans-kr: "Noto Sans KR", sans-serif;
-    --font-base: 'Noto Sans KR', sans-serif;
+    --font-bruno-ace: 'Arial', sans-serif;
+    --font-noto-sans-kr: "Arial", sans-serif;
+    --font-base: 'Arial', sans-serif;
     --font-logo: 'Bruno Ace SC', sans-serif;
-    --font-headline: 'Noto Sans KR', sans-serif;
+    --font-headline: 'Arial', sans-serif;
 }
 
 @layer base {
@@ -141,10 +141,10 @@ body {
 }
 
 .site-container {
-    @apply mx-auto max-w-[var(--container-base)] w-full;
+    @apply mx-auto w-full;
 }
 .site-container--small {
-    @apply mx-auto max-w-[var(--container-small)] w-full;
+    @apply mx-auto w-full p-10;
 }
 
 .header-offset{

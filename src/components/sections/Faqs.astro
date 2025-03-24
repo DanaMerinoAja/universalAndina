@@ -35,16 +35,21 @@ const textColor = getTextColor(background);
 ---
 
 <section class:list={["relative", bgColor, paddingClass]}>
-    <div class="site-container px-4">
-        {(title || description) && (
-            <div class="max-w-3xl mx-auto text-center mb-12">
-                {title && <h2 data-aos="fade-up" class:list={["text-3xl font-bold mb-4", headlineColor]}>{title}</h2>}
-                {description && <p data-aos="fade-up" class:list={["text-lg", textColor]}>{description}</p>}
-            </div>
-        )}
-        
+    {(title || description) && (
+        <div class="max-w-3xl mx-auto ml-12 mt-10 mr-10 px-4">
+            {title && <h2 data-aos="fade-up" class:list={["text-3xl font-bold mb-2", headlineColor]}>{title}</h2>}
+            <hr data-aos="fade-up"/>
+        </div>
+    )}
+
+    <div class="site-container px-4 lg:flex lg:flex-row">
+        <div class="max-w-3xl mx-auto mb-12 ml-12 mt-4 mr-10">
+            <p data-aos="fade-up" class:list={["text-lg", textColor]}>Somos una empresa cajamarquina especializados en proporcionar soluciones en el rubro de mantenimiento mecánico de equipos de sistema de bombeo (bombas, motores y electrobombas) así como mantenimiento de componentes de engrase y herramientas (Mantenimiento Mina).</p>
+            <p data-aos="fade-up" class:list={["text-lg", textColor]}>Nuestra empresa desarrolla sus actividades en un marco de calidad, dentro de los estándares de excelencia y procedimientos que la industria actual requiere, todo ello con el propósito de asegurar la satisfacción y confianza de nuestros clientes.</p>
+            <p data-aos="fade-up" class:list={["text-lg", textColor]}>La preferencia de nuestros clientes ha posibilitado nuestro rápido posicionamiento en el mercado regional, es en este sentido que nuestro principal objetivo se centra en seguir brindando servicios de calidad, mantener la mejora continua de nuestros procesos y promover así el desarrollo de  oportunidades en nuestra región.</p>
+        </div>        
         <div class="max-w-3xl mx-auto">
-            <div class="divide-y divide-gray-200">
+            <div class="divide-y divide-gray-200 mt-10">
                 {faqs.map((faq, index) => (
                     <div 
                         class="faq-item bg-primary"
@@ -61,11 +66,11 @@ const textColor = getTextColor(background);
                             </h3>
                             <div class="icon-wrapper">
                                 <Plus 
-                                    class="w-6 h-6 flex-shrink-0 transition-transform duration-200 ease-out group-hover:scale-110 plus-icon"
+                                    class="w-6 h-6 flex-shrink-0 transition-transform duration-300 ease-out group-hover:scale-110 plus-icon"
                                     aria-hidden="true"
                                 />
                                 <Minus 
-                                    class="w-6 h-6 flex-shrink-0 transition-transform duration-200 ease-out group-hover:scale-110 minus-icon hidden"
+                                    class="w-6 h-6 flex-shrink-0 transition-transform duration-300 ease-out group-hover:scale-110 minus-icon hidden"
                                     aria-hidden="true"
                                 />
                             </div>

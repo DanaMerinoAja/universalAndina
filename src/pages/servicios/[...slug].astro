@@ -1,8 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '@layouts/Layout.astro';
-import CategoryPill from '@components/ui/CategoryPill.astro';
-import Date from '@components/ui/Date.astro';
 import { Image } from 'astro:assets';
 
 export async function getStaticPaths() {
@@ -43,41 +41,33 @@ else if (!seoImage && post.data.featuredImage) {
   image={seoImage}
 >
 
-  <div class="w-full h-120 absolute top-0 left-0 z-0 overflow-hidden border-b border-black">
-    {post.data.featuredImage && (
-      <>
-        <Image 
-          src={post.data.featuredImage} 
-          alt={post.data.title} 
-          width={1920}
-          height={1080}
-          class="w-full h-full object-cover grayscale opacity-20" 
-          quality={60}
-        />
-        <div class="absolute inset-0 bg-primary/10 backdrop-blur-md"></div>
-      </>
-    )}
-  </div>
+  <div class="w-full h-80 absolute top-0 left-0 z-0 overflow-hidden bg-primary"></div>
   
-  <article class="site-container--small mx-auto px-4 prose relative z-10 pb-base">
-    <div class="mt-42 mb-12 text-center">
-      <h1>{post.data.title}</h1>
+  <article class="site-container--small mx-auto prose relative z-10 pb-base">
+
+    <div class="bg-primary mt-42 mb-12 border border-white text-center md:text-left text-white">
+      <h1 class="p-4">{post.data.title}</h1>
     </div>
 
-    {post.data.featuredImage && (
-      <Image 
-        src={post.data.featuredImage} 
-        alt={post.data.title} 
-        width={1500}
-        height={800}
-        class="w-full h-auto rounded-lg border mb-12 border-black" 
-        quality={80}
-        format="webp"
-      />
-    )}
+    <div class="md:flex md:flex-row">
+      <div>
+        {post.data.featuredImage && (
+          <Image 
+            src={post.data.featuredImage} 
+            alt={post.data.title} 
+            width={1500}
+            height={900}
+            class="rounded-lg border mb-12 border-black" 
+            quality={80}
+            format="webp"
+          />
+        )}
+      </div>
 
-    <div class="mt-12">
-      <Content />
+      <div class="mt-12 md:mt-0 pl-10 pr-10">
+        <Content />
+      </div>
     </div>
+    
   </article>
 </Layout>

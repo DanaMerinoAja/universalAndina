@@ -27,10 +27,6 @@ export const faqLists: Record<string, FaqList> = {
                     "Responsabilidad",
                     "Integridad"
                 ]
-            },            
-            {
-                question:"Objetivos",
-                answer:"La preferencia de nuestros clientes ha posibilitado nuestro rápido posicionamiento en el mercado regional, es en este sentido que nuestro principal objetivo se centra en seguir brindado servicios de calidad, mantener la mejora continua de nuestros procesos y promover así el desarrollo de  oportunidades en nuestra región."
             }
         ]
     }

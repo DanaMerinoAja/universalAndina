@@ -14,16 +14,17 @@ interface Props {
 	description?: string;
 	image?: string;
 	canonicalUrl?: string;
+	contacto?:boolean;
+	isIndex?:boolean;
 }
 
-const { title, description, image, footerCta, canonicalUrl } = Astro.props;
+const { title, description, image, canonicalUrl, contacto, isIndex } = Astro.props;
 
 const pageTitle = title ? `${title} ${Separator} ${SiteName}` : SiteName;
 const pageDescription = description || defaultDescription || '';
 const pageImage = image || '';
 const canonicalPath = canonicalUrl || Astro.url.pathname;
 const fullCanonicalUrl = new URL(canonicalPath, siteConfig.siteUrl).toString();
-
 ---
 
 <!doctype html>
@@ -59,9 +60,12 @@ const fullCanonicalUrl = new URL(canonicalPath, siteConfig.siteUrl).toString();
 		{pageImage && <meta property="twitter:image" content={new URL(pageImage, siteConfig.siteUrl).toString()} />}
 	</head>
 	<body data-theme={theme}>
-		<Header />
+		<Header isIndex={isIndex}/>
 		<slot />
-		<Footer/>
+		
+		<div class={contacto ? "hidden":""}>
+			<Footer/>
+		</div>
 		
 		<script>
 			import AOS from 'aos';

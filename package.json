@@ -12,7 +12,8 @@
     "@astrojs/sitemap": "^3.2.1",
     "aos": "^2.3.4",
     "astro": "^5.2.5",
-    "lucide-astro": "^0.473.0"
+    "lucide-astro": "^0.473.0",
+    "swiper": "^11.2.6"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.0.5",
