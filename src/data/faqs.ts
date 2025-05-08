@@ -17,7 +17,7 @@ export const faqLists: Record<string, FaqList> = {
                 answer: "Brindar soluciones fiables a nuestros clientes mediante servicios de mantenimiento mecánico de equipos de sistema de bombeo y componentes de engrase y herramientas a nivel nacional, basados en la eficiencia, seguridad y personal altamente calificado y motivado."
             },
             {
-                question: "Vision",
+                question: "Visión",
                 answer: "Ser reconocidos como la mejor opción por la excelencia de nuestros servicios (2024-2026)."
             },
             {

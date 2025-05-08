@@ -1,7 +1,7 @@
 ---
 title: "ACCESORIOS INDUSTRIALES Y FORMATERÍA CORPORATIVA"
 excerpt: "Comercialización y fabricación de accesorios de seguridad industrial"
-featuredImage: "./images/venta_accesorios_industriales.jpg"
+featuredImage: "./images/formateria_corporativa.jpeg"
 publishDate: ""
 publish: true
 categories: []

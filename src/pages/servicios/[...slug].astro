@@ -41,28 +41,26 @@ else if (!seoImage && post.data.featuredImage) {
   image={seoImage}
 >
 
-  <div class="w-full h-80 absolute top-0 left-0 z-0 overflow-hidden bg-primary"></div>
+  <div class="w-full h-16 absolute top-0 left-0 z-0 overflow-hidden bg-primary"></div>
   
   <article class="site-container--small mx-auto prose relative z-10 pb-base">
 
-    <div class="bg-primary mt-42 mb-12 border border-white text-center md:text-left text-white">
-      <h1 class="p-4">{post.data.title}</h1>
+    <div class="mt-25 text-center md:text-left text-black items-center">
+      <h1 >{post.data.title}</h1>
     </div>
 
-    <div class="md:flex md:flex-row">
-      <div>
-        {post.data.featuredImage && (
-          <Image 
-            src={post.data.featuredImage} 
-            alt={post.data.title} 
-            width={1500}
-            height={900}
-            class="rounded-lg border mb-12 border-black" 
-            quality={80}
-            format="webp"
-          />
-        )}
-      </div>
+    <div class="md:flex md:flex-row min-h-120">
+      {post.data.featuredImage && (
+        <Image 
+          src={post.data.featuredImage} 
+          alt={post.data.title}
+          width={1500}
+          height={900}
+          class="rounded-lg border mb-12 border-black h-[300px] w-[600px] object-fill" 
+          quality={80}
+          format="webp"
+        />
+      )}
 
       <div class="mt-12 md:mt-0 pl-10 pr-10">
         <Content />

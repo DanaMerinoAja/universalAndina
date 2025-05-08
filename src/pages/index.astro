@@ -8,8 +8,8 @@ import { logoLists } from '@data/logos';
 import Faqs from '@components/sections/Faqs.astro';
 import { faqLists } from '@data/faqs';
 import homeImage from '../assets/images/home/default-home.jpg';
-const seoTitle = "Modern, High-Performance Astro Theme";
-const seoDescription = "A modern, high-performance Astro theme for developer portfolios and documentation sites.";
+const seoTitle = "Universal Andina";
+const seoDescription = "Especialistas en mantenimiento mecánico";
 
 const heroContent = {
     title: '',
@@ -46,14 +46,16 @@ const faqsSection = {
 ---
 
 <Layout title={seoTitle} description={seoDescription} isIndex={true}>
-    <section id="inicio" class="mb-12">
+    <section id="inicio">
         <Hero content={heroContent} />    
     </section>
-    <section id="nosotros" class="mb-12">
+    <section id="nosotros" class="mb-20 mt-15 scroll-mt-20">
         <Faqs content={faqsSection} background="base" padding="base" />
     </section>
-    <section id="servicios" class="mb-12">
+    <section id="servicios" class="mb-20 mt-20 scroll-mt-18">
         <Features content={featuresSection} padding="base" background="light" />
-        <Logos content={logosSection} background="base" padding='small'/>
+        <div class="mt-20">
+            <Logos content={logosSection} background="base" padding='small'/>
+        </div>
     </section>    
 </Layout>

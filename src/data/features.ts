@@ -3,7 +3,7 @@ import estructuras_metalicas from 'src/content/blog/images/estructuras_metalicas
 import mantenimiento from 'src/content/blog/images/mantenimiento_mec_electrico.png';
 import maestranza from 'src/content/blog/images/maestranza.jpg';
 import sistemas from 'src/content/blog/images/sistemas_neumaticos_hidraulicos.jpg';
-import accesorios from 'src/content/blog/images/venta_accesorios_industriales.jpg';
+import accesorios from 'src/content/blog/images/formateria_corporativa.jpeg';
 
 // Define the LucideIcon type based on the structure of Lucide icons
 type LucideIcon = typeof Zap;

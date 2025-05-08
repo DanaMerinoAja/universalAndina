@@ -24,13 +24,20 @@ const isCurrentPage = (link: string) => {
     return currentPath.startsWith(link);
 };
 
+declare global {
+  interface Window {
+    swiperInstance: any; // o el tipo específico si deseas
+  }
+}
+
+
 ---
 
 
 <header class="fixed top-0 z-50 w-full left-0">
     <div class="site-container">
         <div id="header" class=`flex justify-between items-center transition delay-150 duration-300 px-4 ${isIndex? "bg-transparent":""}`>
-        <div id="logo" class={isIndex ? "invisible":""}>
+        <div id="logo">
             <Logo />
         </div>
         <nav class="relative flex items-center gap-2 lg:gap-8" aria-label="Site Navigation">
@@ -38,14 +45,14 @@ const isCurrentPage = (link: string) => {
         <ul class="hidden lg:flex items-center">
             {headerMenu.map((item, index) => (
                 <li class="relative group">
-                    <div class="flex items-center py-4 px-4 hover:bg-primary-light">
-                        <a 
+                    <a 
                             href={item.link} 
                             class:list={[
-                                "text-small font-medium rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-nav-text-active",
+                                "text-base font-medium rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-nav-text-active",
                                 isCurrentPage(item.link) 
                                     ? "text-nav-text-current font-semibold" 
-                                    : "text-nav-text hover:text-nav-text-hover"
+                                    : "text-nav-text hover:text-nav-text-hover",
+                                    "flex items-center py-4 px-4 hover:bg-primary-light"
                             ]}
                             aria-expanded={item.children ? "false" : undefined}
                             aria-haspopup={item.children ? "true" : undefined}
@@ -60,7 +67,6 @@ const isCurrentPage = (link: string) => {
                                 />
                             )}
                         </a>
-                    </div>
                     {item.children && (
                         <ul
                             class:list={[
@@ -189,7 +195,24 @@ const isCurrentPage = (link: string) => {
 <script>
     // Desktop Menu
     const desktopMenuItems = document.querySelectorAll('.group');
+
+    // Espera a que esté definido
+    document.addEventListener('DOMContentLoaded', () => {
+    const headerLinks = document.querySelectorAll('header a'); // o usa una clase específica si lo prefieres
+
+    headerLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+        const linkText = link.textContent?.trim();
+
+        if (linkText === 'Inicio' && window.swiperInstance) {
+            window.swiperInstance.slideToLoop(0);
+        }
+        });
+    });
+    });
+
     
+
     desktopMenuItems.forEach(item => {
         const link = item.querySelector('a');
         const submenu = item.querySelector('.submenu');
@@ -320,21 +343,34 @@ const isCurrentPage = (link: string) => {
             menuIcon?.classList.remove('hidden');
             closeIcon?.classList.add('hidden');
         }
+            // Cerrar el menú móvil cuando se hace clic en cualquier link del menú
+        const allNavLinks = document.querySelectorAll('a'); // o ajusta el selector según tu HTML
+        allNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (!mobileMenu?.classList.contains('hidden')) {
+                document.body.style.overflow = '';
+                mobileMenu?.classList.add('opacity-0', 'scale-95');
+                mobileMenu?.classList.remove('opacity-100', 'scale-100');
+                setTimeout(() => {
+                    mobileMenu?.classList.add('hidden');
+                }, 200);
+                menuIcon?.classList.remove('hidden');
+                closeIcon?.classList.add('hidden');
+                }
+            });
+        });
     });
 
     window.addEventListener("scroll", function() {
         const header = document.getElementById("header");
-        const logo = document.getElementById("logo");
         
-            if(header !== null && logo !== null){
+            if(header !== null){
                 if (window.scrollY > 50) {
                     header.classList.add("bg-primary", "shadow-lg");
-                    logo.classList.remove("invisible");
                     header.classList.remove("bg-transparent", "text-white");
                 } else {
                     header.classList.add("bg-transparent");
                     header.classList.remove("bg-primary", "shadow-lg", "text-white");
-                    logo.classList.add("invisible");
                 }
             }
         

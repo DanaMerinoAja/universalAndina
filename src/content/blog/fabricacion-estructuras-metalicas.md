@@ -1,6 +1,6 @@
 ---
 title: "FABRICACIÓN DE ESTRUCTURAS METÁLICAS"
-excerpt: ""
+excerpt: "Fabricacion de estructuras metalicas industriales"
 featuredImage: "./images/estructuras_metalicas.jpg"
 publishDate: ""
 publish: true

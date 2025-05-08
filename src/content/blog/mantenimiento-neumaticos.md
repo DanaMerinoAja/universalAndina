@@ -1,6 +1,6 @@
 ---
 title: "MANTENIMIENTO A SISTEMAS NEUMÁTICOS E HIDRÁULICOS"
-excerpt: ""
+excerpt: "Mantenimiento de sistemas neumaticos e hidraulicos"
 featuredImage: "./images/sistemas_neumaticos_hidraulicos.jpg"
 publishDate: ""
 publish: true
@@ -9,7 +9,6 @@ categories: []
 seo:
   title: "MANTENIMIENTO A SISTEMAS NEUMÁTICOS E HIDRÁULICOS"
   description: "Mantenimiento de sistemas hidráulicos y neumáticos"
-  image: "./images/sistemas_neumaticos_hidraulicos.jpg"
 ---
 
 ## Servicios del rubro

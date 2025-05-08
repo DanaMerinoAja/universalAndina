@@ -1,6 +1,6 @@
 import Swiper from 'swiper/bundle';
 
-new Swiper('.swiper', {
+window.swiperInstance = new Swiper('.swiper', {
   loop: true,
   pagination: {
     el: '.swiper-pagination',
